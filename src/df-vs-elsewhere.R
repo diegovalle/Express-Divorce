@@ -8,17 +8,17 @@ per.change$state <- with(per.change, reorder(state, ratio))
 ggplot(per.change,
        aes(ratio, state, color = change)) +
   geom_vline(xintercept = 1,linetype = 2, color = "gray70") +
-  geom_point() +
+  geom_point(size = 3) +
   opts(title = "Ratio of 2009 divorces to 2008 divorces that were filed in the Federal District") +
-  ylab("state where marriage took place")
-ggsave("graphs/ratio-df.png", dpi = 100, w = 9, h = 7)
+  ylab("state where marriage took place") +
+  scale_color_discrete("change\nin ratio")
+ggsave("graphs/ratio-df.png", dpi = 100, w = 8, h = 6)
 
 
 
 div.df.state2 <- rbind(subset(div.df.state, state == "Distrito Federal"), div.df.state)
 div.df.state2$FederalDistrict <- ifelse(div.df.state2$state %in% c("Distrito Federal"),
                                  "Federal District", "Elsewhere")
-div.df.state2$state <- str_replace(div.df.state2$state, " de.*", "")
 p <- ggplot(div.df.state2,
        aes(divorce.year, divorces,
            group = state, color = state,

@@ -21,7 +21,7 @@ p <- ggplot(df.length, aes(divorce.year, divorces,
                            group = group, color = group)) +
   geom_line() +
   xlim(2001,2011) +
-  opts(title = "Percentage change in number of divorces, by length of marriage") +
+  opts(title = "Percentage change in number of divorces in the Federal District,\n by length of marriage") +
   xlab("year divorce was filed") +
   ylab("percentage change in number of divorces") +
   scale_y_continuous(label = percent)

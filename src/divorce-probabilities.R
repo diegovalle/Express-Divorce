@@ -4,7 +4,7 @@ p <- ggplot(marriage.duration, aes(length, percent.divorce, group = marriage.yea
   geom_line() +
   scale_y_continuous(label = percent)+
       xlab("years since wedding") +
-  opts(title = "Proportion of marriages ending in divorce each year, by year of marriage") +
+  opts(title = "Proportion of marriages ending in divorce each year in all of Mexico,\n by year of marriage") +
       ylab("proportion of marriages ending in divorce") +
   scale_colour_gradient(low="gray80", high="black") +
   xlim(0,17)
@@ -20,15 +20,15 @@ p <- ggplot(marriage.duration, aes(length, cumulative.divorce, group = marriage.
       scale_colour_gradient(low="gray80", high="black")+
       theme_bw() +
       opts(legend.position="none",
-           title = "Cumulative proportion of marriages ending in divorce, by year of marriage" )+
+           title = "Cumulative proportion of marriages ending in divorce in all of Mexico,\n by year of marriage" )+
   xlim(0,17)
-direct.label(p, "last.points")
+direct.label(p, "top.bumpup")
 ggsave("graphs/cumulative-divorce-by-length.png", dpi = 100, w = 8, h = 6)
 
 marriage.duration$express.divorce <- marriage.duration$divorce.year >= 2008
 fit <- lme(fixed = percent.divorce ~ length + log(length) + marriage.year + express.divorce,
            random = ~ -1 | marriage.year, 
-           data = subset(marriage.duration, length >= 2 & length <=15))
+           data = subset(marriage.duration, length >= 2))
 summary(fit)
 plot(fit)
 #marriage.duration$predict[marriage.duration$length > 0] <- predict(fit)
@@ -77,7 +77,7 @@ p <- ggplot(marriage.duration2, aes(length, percent.divorce, group = marriage.ye
   xlab("years since wedding") +
   ylab("proportion of marriages ending in divorce")+
   opts(
-       title = "Projection of proportion of marriages ending in divorce, by year of marriage" )+
+       title = "Projection of proportion of marriages ending in divorce in all of Mexico,\n by year of marriage" )+
   xlim(0,17)
 direct.label(p, "last.bumpup")
 ggsave("graphs/projection-divorces-by-length.png", dpi = 100, w = 8, h = 6)
@@ -95,7 +95,7 @@ p <- ggplot(subset(marriage.duration2, marriage.year <= 2007),
   xlab("years since wedding") +
   ylab("cumulative proportion of marriages ending in divorce")+
   opts(plot.title = theme_text(size = 13),
-       title = "Projection of the cumulative proportion of marriages ending in divorce, by year of marriage" )+
+       title = "Projection of the cumulative proportion of marriages ending in divorce in all of Mexico,\n by year of marriage" )+
   xlim(0,17)
 direct.label(p, "last.bumpup")
 ggsave("graphs/projection-cumulative-divorces-by-length.png", dpi = 100, w = 8, h = 6)

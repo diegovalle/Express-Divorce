@@ -6,12 +6,13 @@ seasonggplot <- function(ts) {
            month = factor(month.abb, levels = month.abb),
            year = floor(time(ts)))
   df$group <- ifelse(df$year == 2009, "2009", "1993-2008")
-  ggplot(df, aes(month, divorces, group = year, color = group)) +
+  ggplot(df, aes(month, divorces, group = year, color = factor(year))) +
     geom_line() +
       ylab("log number of divorces") +
         opts(title = "Seasonal variation in divorces in the Federal District") +
     scale_color_manual("year", values = c(colorRampPalette(c("gray80",
-                                 "black"))(2009-1993),"#E34A33")) +
+                                 "black"))(2009-1993),"#E34A33"),
+                       breaks = c(1993,2009), labels = c("1993-2008", "2009")) +
     scale_x_discrete("month divorce was filed", breaks = month.abb,
                       labels = month.abb)
 }

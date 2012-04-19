@@ -73,8 +73,8 @@ div.df.state <- subset(div.df.state, X.2 >= 1993 &
 
 div.df.state$divorces[div.df.state$X == 2008] <- div.df.state$divorces[div.df.state$X == 2008] * 1.01
 div.df.state <- div.df.state[,c(1,2,ncol(div.df.state))]
-
 names(div.df.state) <- c("state", "divorce.year", "divorces")
+div.df.state$state <- str_replace(div.df.state$state, " de.*", "")
 
 
 #Marriage duration in the Federal district
@@ -100,6 +100,15 @@ marriage.duration.df <- subset(marriage.duration.df, divorce.year < 2010 &
 #head(marriage.duration.df)
 
 
-
-
+#Marriages in the Federal District
+marriages.df <- read.csv("data/marriages-df.csv", skip = 6, fileEncoding = "UTF-8")
+marriages.df <- subset(marriages.df, X != "Total" & X != "FUENTE: INEGI. Estadísticas de nupcialidad.")
+marriages.df$X <- month.abb
+marriages.df <- melt(marriages.df, id = "X")
+marriages.df$date <- with(marriages.df, as.Date((str_c(X, variable, "01", sep = "-")),
+                                                "%b-X%Y-%d")
+                          )
+marriages.df$date <- as.Date(marriages.df$date)
+marriages.df <- marriages.df[,3:4]
+names(marriages.df) <- c("marriages", "date")
 
