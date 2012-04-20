@@ -1,0 +1,530 @@
+"state","divorce.year","divorces"
+"Aguascalientes",1993,8
+"Aguascalientes",1994,2
+"Aguascalientes",1995,3
+"Aguascalientes",1996,1
+"Aguascalientes",1997,5
+"Aguascalientes",1998,2
+"Aguascalientes",1999,5
+"Aguascalientes",2000,5
+"Aguascalientes",2001,3
+"Aguascalientes",2002,5
+"Aguascalientes",2003,5
+"Aguascalientes",2004,2
+"Aguascalientes",2005,1
+"Aguascalientes",2006,3
+"Aguascalientes",2007,2
+"Aguascalientes",2008,2
+"Aguascalientes",2009,5
+"Baja California",1993,10
+"Baja California",1994,9
+"Baja California",1995,7
+"Baja California",1996,5
+"Baja California",1997,6
+"Baja California",1998,7
+"Baja California",1999,7
+"Baja California",2000,8
+"Baja California",2001,5
+"Baja California",2002,9
+"Baja California",2003,10
+"Baja California",2004,5
+"Baja California",2005,1
+"Baja California",2006,4
+"Baja California",2007,2
+"Baja California",2008,3
+"Baja California",2009,8
+"Baja California Sur",1993,2
+"Baja California Sur",1995,2
+"Baja California Sur",1996,3
+"Baja California Sur",1997,2
+"Baja California Sur",1998,2
+"Baja California Sur",1999,1
+"Baja California Sur",2002,6
+"Baja California Sur",2003,1
+"Baja California Sur",2004,2
+"Baja California Sur",2005,1
+"Baja California Sur",2006,1
+"Baja California Sur",2008,1
+"Baja California Sur",2009,319
+"Campeche",1993,2
+"Campeche",1994,4
+"Campeche",1995,2
+"Campeche",1996,1
+"Campeche",1997,3
+"Campeche",1998,1
+"Campeche",1999,1
+"Campeche",2000,5
+"Campeche",2001,3
+"Campeche",2002,1
+"Campeche",2003,6
+"Campeche",2004,1
+"Campeche",2006,2
+"Campeche",2007,1
+"Campeche",2008,1
+"Campeche",2009,45
+"Coahuila",1993,5
+"Coahuila",1994,12
+"Coahuila",1995,1
+"Coahuila",1996,7
+"Coahuila",1997,2
+"Coahuila",1998,6
+"Coahuila",1999,3
+"Coahuila",2000,4
+"Coahuila",2001,11
+"Coahuila",2002,8
+"Coahuila",2003,6
+"Coahuila",2004,2
+"Coahuila",2005,8
+"Coahuila",2006,1
+"Coahuila",2007,1
+"Coahuila",2008,5
+"Coahuila",2009,322
+"Colima",1994,1
+"Colima",1995,2
+"Colima",1996,2
+"Colima",1999,2
+"Colima",2000,1
+"Colima",2001,3
+"Colima",2002,3
+"Colima",2003,2
+"Colima",2004,2
+"Colima",2005,2
+"Colima",2006,3
+"Colima",2007,2
+"Colima",2008,1
+"Colima",2009,111
+"Chiapas",1993,11
+"Chiapas",1994,12
+"Chiapas",1995,5
+"Chiapas",1996,7
+"Chiapas",1997,10
+"Chiapas",1998,10
+"Chiapas",1999,9
+"Chiapas",2000,8
+"Chiapas",2001,14
+"Chiapas",2002,9
+"Chiapas",2003,11
+"Chiapas",2004,4
+"Chiapas",2005,5
+"Chiapas",2006,6
+"Chiapas",2007,4
+"Chiapas",2008,5
+"Chiapas",2009,283
+"Chihuahua",1993,7
+"Chihuahua",1994,5
+"Chihuahua",1995,6
+"Chihuahua",1996,6
+"Chihuahua",1997,7
+"Chihuahua",1998,8
+"Chihuahua",1999,3
+"Chihuahua",2000,2
+"Chihuahua",2001,7
+"Chihuahua",2002,12
+"Chihuahua",2003,5
+"Chihuahua",2004,7
+"Chihuahua",2005,5
+"Chihuahua",2006,5
+"Chihuahua",2008,1
+"Chihuahua",2009,63
+"Distrito Federal",1993,5285
+"Distrito Federal",1994,5211
+"Distrito Federal",1995,4993
+"Distrito Federal",1996,4645
+"Distrito Federal",1997,5559
+"Distrito Federal",1998,5766
+"Distrito Federal",1999,6109
+"Distrito Federal",2000,6291
+"Distrito Federal",2001,6744
+"Distrito Federal",2002,6192
+"Distrito Federal",2003,6002
+"Distrito Federal",2004,5912
+"Distrito Federal",2005,6032
+"Distrito Federal",2006,6076
+"Distrito Federal",2007,6178
+"Distrito Federal",2008,6627
+"Distrito Federal",2009,6092
+"Durango",1993,1
+"Durango",1994,2
+"Durango",1995,5
+"Durango",1996,3
+"Durango",1997,3
+"Durango",1998,3
+"Durango",1999,2
+"Durango",2000,4
+"Durango",2001,3
+"Durango",2002,5
+"Durango",2003,1
+"Durango",2004,3
+"Durango",2005,3
+"Durango",2008,1
+"Durango",2009,155
+"Guanajuato",1993,15
+"Guanajuato",1994,18
+"Guanajuato",1995,16
+"Guanajuato",1996,15
+"Guanajuato",1997,21
+"Guanajuato",1998,13
+"Guanajuato",1999,14
+"Guanajuato",2000,20
+"Guanajuato",2001,20
+"Guanajuato",2002,21
+"Guanajuato",2003,16
+"Guanajuato",2004,10
+"Guanajuato",2005,9
+"Guanajuato",2006,18
+"Guanajuato",2007,7
+"Guanajuato",2008,10
+"Guanajuato",2009,63
+"Guerrero",1993,30
+"Guerrero",1994,46
+"Guerrero",1995,40
+"Guerrero",1996,37
+"Guerrero",1997,42
+"Guerrero",1998,31
+"Guerrero",1999,43
+"Guerrero",2000,37
+"Guerrero",2001,46
+"Guerrero",2002,39
+"Guerrero",2003,47
+"Guerrero",2004,30
+"Guerrero",2005,31
+"Guerrero",2006,38
+"Guerrero",2007,25
+"Guerrero",2008,37
+"Guerrero",2009,177
+"Hidalgo",1993,69
+"Hidalgo",1994,58
+"Hidalgo",1995,47
+"Hidalgo",1996,51
+"Hidalgo",1997,43
+"Hidalgo",1998,52
+"Hidalgo",1999,58
+"Hidalgo",2000,62
+"Hidalgo",2001,52
+"Hidalgo",2002,59
+"Hidalgo",2003,51
+"Hidalgo",2004,35
+"Hidalgo",2005,40
+"Hidalgo",2006,48
+"Hidalgo",2007,50
+"Hidalgo",2008,28
+"Hidalgo",2009,155
+"Jalisco",1993,21
+"Jalisco",1994,26
+"Jalisco",1995,22
+"Jalisco",1996,19
+"Jalisco",1997,17
+"Jalisco",1998,24
+"Jalisco",1999,28
+"Jalisco",2000,25
+"Jalisco",2001,32
+"Jalisco",2002,16
+"Jalisco",2003,22
+"Jalisco",2004,9
+"Jalisco",2005,21
+"Jalisco",2006,12
+"Jalisco",2007,12
+"Jalisco",2008,16
+"Jalisco",2009,253
+"México",1993,537
+"México",1994,572
+"México",1995,554
+"México",1996,546
+"México",1997,570
+"México",1998,616
+"México",1999,705
+"México",2000,696
+"México",2001,736
+"México",2002,722
+"México",2003,640
+"México",2004,567
+"México",2005,520
+"México",2006,512
+"México",2007,416
+"México",2008,480
+"México",2009,1135
+"Michoacán",1993,31
+"Michoacán",1994,30
+"Michoacán",1995,32
+"Michoacán",1996,22
+"Michoacán",1997,27
+"Michoacán",1998,38
+"Michoacán",1999,35
+"Michoacán",2000,50
+"Michoacán",2001,30
+"Michoacán",2002,40
+"Michoacán",2003,24
+"Michoacán",2004,30
+"Michoacán",2005,21
+"Michoacán",2006,20
+"Michoacán",2007,14
+"Michoacán",2008,25
+"Michoacán",2009,216
+"Morelos",1993,46
+"Morelos",1994,46
+"Morelos",1995,50
+"Morelos",1996,42
+"Morelos",1997,60
+"Morelos",1998,64
+"Morelos",1999,64
+"Morelos",2000,78
+"Morelos",2001,79
+"Morelos",2002,69
+"Morelos",2003,69
+"Morelos",2004,64
+"Morelos",2005,65
+"Morelos",2006,49
+"Morelos",2007,40
+"Morelos",2008,39
+"Morelos",2009,183
+"Nayarit",1993,3
+"Nayarit",1994,1
+"Nayarit",1995,5
+"Nayarit",1996,1
+"Nayarit",1997,2
+"Nayarit",1998,1
+"Nayarit",1999,4
+"Nayarit",2000,3
+"Nayarit",2001,1
+"Nayarit",2002,2
+"Nayarit",2003,3
+"Nayarit",2005,2
+"Nayarit",2006,1
+"Nayarit",2007,1
+"Nayarit",2009,8
+"Nuevo León",1993,8
+"Nuevo León",1994,10
+"Nuevo León",1995,12
+"Nuevo León",1996,7
+"Nuevo León",1997,4
+"Nuevo León",1998,11
+"Nuevo León",1999,8
+"Nuevo León",2000,7
+"Nuevo León",2001,8
+"Nuevo León",2002,7
+"Nuevo León",2003,10
+"Nuevo León",2004,7
+"Nuevo León",2005,7
+"Nuevo León",2006,2
+"Nuevo León",2007,3
+"Nuevo León",2008,6
+"Nuevo León",2009,8
+"Oaxaca",1993,16
+"Oaxaca",1994,13
+"Oaxaca",1995,17
+"Oaxaca",1996,21
+"Oaxaca",1997,23
+"Oaxaca",1998,25
+"Oaxaca",1999,21
+"Oaxaca",2000,24
+"Oaxaca",2001,20
+"Oaxaca",2002,15
+"Oaxaca",2003,18
+"Oaxaca",2004,14
+"Oaxaca",2005,14
+"Oaxaca",2006,12
+"Oaxaca",2007,14
+"Oaxaca",2008,19
+"Oaxaca",2009,24
+"Puebla",1993,50
+"Puebla",1994,57
+"Puebla",1995,55
+"Puebla",1996,44
+"Puebla",1997,47
+"Puebla",1998,48
+"Puebla",1999,38
+"Puebla",2000,45
+"Puebla",2001,48
+"Puebla",2002,46
+"Puebla",2003,51
+"Puebla",2004,36
+"Puebla",2005,37
+"Puebla",2006,31
+"Puebla",2007,20
+"Puebla",2008,31
+"Puebla",2009,55
+"Querétaro",1993,7
+"Querétaro",1994,15
+"Querétaro",1995,5
+"Querétaro",1996,6
+"Querétaro",1997,8
+"Querétaro",1998,9
+"Querétaro",1999,13
+"Querétaro",2000,13
+"Querétaro",2001,12
+"Querétaro",2002,10
+"Querétaro",2003,9
+"Querétaro",2004,7
+"Querétaro",2005,7
+"Querétaro",2006,5
+"Querétaro",2007,12
+"Querétaro",2008,10
+"Querétaro",2009,13
+"Quintana Roo",1993,2
+"Quintana Roo",1994,2
+"Quintana Roo",1995,4
+"Quintana Roo",1996,5
+"Quintana Roo",1997,4
+"Quintana Roo",1998,9
+"Quintana Roo",1999,5
+"Quintana Roo",2000,6
+"Quintana Roo",2001,4
+"Quintana Roo",2002,8
+"Quintana Roo",2003,1
+"Quintana Roo",2004,1
+"Quintana Roo",2005,2
+"Quintana Roo",2006,3
+"Quintana Roo",2007,8
+"Quintana Roo",2008,1
+"Quintana Roo",2009,7
+"San Luís Potosí",1993,7
+"San Luís Potosí",1994,6
+"San Luís Potosí",1995,9
+"San Luís Potosí",1996,7
+"San Luís Potosí",1997,4
+"San Luís Potosí",1998,9
+"San Luís Potosí",1999,9
+"San Luís Potosí",2000,14
+"San Luís Potosí",2001,8
+"San Luís Potosí",2002,5
+"San Luís Potosí",2003,5
+"San Luís Potosí",2004,8
+"San Luís Potosí",2005,2
+"San Luís Potosí",2006,2
+"San Luís Potosí",2007,3
+"San Luís Potosí",2008,3
+"San Luís Potosí",2009,11
+"Sinaloa",1993,7
+"Sinaloa",1994,10
+"Sinaloa",1995,9
+"Sinaloa",1996,6
+"Sinaloa",1997,7
+"Sinaloa",1998,10
+"Sinaloa",1999,7
+"Sinaloa",2000,9
+"Sinaloa",2001,8
+"Sinaloa",2002,12
+"Sinaloa",2003,9
+"Sinaloa",2004,5
+"Sinaloa",2005,8
+"Sinaloa",2006,2
+"Sinaloa",2007,1
+"Sinaloa",2008,9
+"Sinaloa",2009,11
+"Sonora",1993,5
+"Sonora",1994,4
+"Sonora",1995,3
+"Sonora",1996,2
+"Sonora",1998,3
+"Sonora",1999,7
+"Sonora",2000,2
+"Sonora",2001,5
+"Sonora",2002,6
+"Sonora",2003,5
+"Sonora",2004,2
+"Sonora",2005,6
+"Sonora",2006,3
+"Sonora",2008,3
+"Sonora",2009,4
+"Tabasco",1993,5
+"Tabasco",1994,1
+"Tabasco",1995,2
+"Tabasco",1996,5
+"Tabasco",1997,5
+"Tabasco",1998,5
+"Tabasco",1999,5
+"Tabasco",2000,2
+"Tabasco",2001,4
+"Tabasco",2002,4
+"Tabasco",2003,4
+"Tabasco",2004,5
+"Tabasco",2005,7
+"Tabasco",2006,8
+"Tabasco",2007,9
+"Tabasco",2008,2
+"Tabasco",2009,2
+"Tamaulipas",1993,12
+"Tamaulipas",1994,5
+"Tamaulipas",1995,9
+"Tamaulipas",1996,8
+"Tamaulipas",1997,10
+"Tamaulipas",1998,9
+"Tamaulipas",1999,11
+"Tamaulipas",2000,9
+"Tamaulipas",2001,7
+"Tamaulipas",2002,9
+"Tamaulipas",2003,7
+"Tamaulipas",2004,10
+"Tamaulipas",2005,2
+"Tamaulipas",2006,9
+"Tamaulipas",2007,5
+"Tamaulipas",2008,4
+"Tamaulipas",2009,13
+"Tlaxcala",1993,31
+"Tlaxcala",1994,26
+"Tlaxcala",1995,19
+"Tlaxcala",1996,17
+"Tlaxcala",1997,15
+"Tlaxcala",1998,33
+"Tlaxcala",1999,24
+"Tlaxcala",2000,26
+"Tlaxcala",2001,23
+"Tlaxcala",2002,20
+"Tlaxcala",2003,18
+"Tlaxcala",2004,23
+"Tlaxcala",2005,20
+"Tlaxcala",2006,6
+"Tlaxcala",2007,14
+"Tlaxcala",2008,9
+"Tlaxcala",2009,28
+"Veracruz",1993,42
+"Veracruz",1994,41
+"Veracruz",1995,43
+"Veracruz",1996,48
+"Veracruz",1997,47
+"Veracruz",1998,48
+"Veracruz",1999,35
+"Veracruz",2000,56
+"Veracruz",2001,34
+"Veracruz",2002,39
+"Veracruz",2003,27
+"Veracruz",2004,44
+"Veracruz",2005,33
+"Veracruz",2006,18
+"Veracruz",2007,18
+"Veracruz",2008,26
+"Veracruz",2009,58
+"Yucatán",1993,6
+"Yucatán",1994,6
+"Yucatán",1995,3
+"Yucatán",1996,2
+"Yucatán",1997,3
+"Yucatán",1998,4
+"Yucatán",1999,4
+"Yucatán",2000,2
+"Yucatán",2001,4
+"Yucatán",2002,4
+"Yucatán",2003,2
+"Yucatán",2004,2
+"Yucatán",2005,3
+"Yucatán",2006,3
+"Yucatán",2007,2
+"Yucatán",2008,2
+"Yucatán",2009,5
+"Zacatecas",1993,3
+"Zacatecas",1994,1
+"Zacatecas",1995,2
+"Zacatecas",1996,1
+"Zacatecas",1997,3
+"Zacatecas",1998,5
+"Zacatecas",1999,2
+"Zacatecas",2000,2
+"Zacatecas",2001,2
+"Zacatecas",2002,4
+"Zacatecas",2003,3
+"Zacatecas",2004,3
+"Zacatecas",2005,1
+"Zacatecas",2006,1
+"Zacatecas",2007,3
+"Zacatecas",2008,3
+"Zacatecas",2009,3
