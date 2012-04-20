@@ -1,4 +1,4 @@
-
+###################################################################3
 #Load divorces that took place in the Federal District
 div.df <- read.csv("data/divorces-df.csv",  skip = 6, fileEncoding = "UTF-8")
 div.df <- subset(div.df, X != "Total" & X.1 != "Total" &
@@ -25,6 +25,7 @@ div.df$date <- as.Date(str_c(div.df$X, "-", div.df$X.1, "-15"),
                           format = "%Y-%b-%d")
 div.df$X <- NULL; div.df$X.1 <- NULL
 
+##########################################################
 #Clean the marriage duration data
 marriage.duration <- read.csv("data/social-duration.csv", skip = 5, fileEncoding = "UTF-8")
 marriage.duration <- subset(marriage.duration, X != "Total" & X.1 != "Total" &
@@ -56,7 +57,7 @@ marriage.duration$percent.divorce <- marriage.duration$divorces / marriage.durat
 marriage.duration <- ddply(marriage.duration, .(marriage.year), transform, 
       cumulative.divorce = cumsum(percent.divorce))
 
-
+######################################################
 #Load the federal district divorce data by state of marriage of the persons who solicited a divorce
 div.df.state <- read.csv("data/divorce-registered-df.csv", skip = 7, fileEncoding = "UTF-8")
 div.df.state$X <- NULL
@@ -76,7 +77,7 @@ div.df.state <- div.df.state[,c(1,2,ncol(div.df.state))]
 names(div.df.state) <- c("state", "divorce.year", "divorces")
 div.df.state$state <- str_replace(div.df.state$state, " de.*", "")
 
-
+###################################################
 #Marriage duration in the Federal district
 marriage.duration.df <- read.csv("data/social-duration-df.csv",
                                  skip = 6, fileEncoding = "UTF-8")
@@ -99,7 +100,7 @@ marriage.duration.df <- subset(marriage.duration.df, divorce.year < 2010 &
                                marriage.year < 2010 & divorce.year > 1992)
 #head(marriage.duration.df)
 
-
+#######################################################
 #Marriages in the Federal District
 marriages.df <- read.csv("data/marriages-df.csv", skip = 6, fileEncoding = "UTF-8")
 marriages.df <- subset(marriages.df, X != "Total" & X != "FUENTE: INEGI. Estadísticas de nupcialidad.")

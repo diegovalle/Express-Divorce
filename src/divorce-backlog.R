@@ -1,5 +1,13 @@
+########################################################
+# Author: Diego Valle-Jones
+# Website: www.diegovalle.net
+# Date Created: Thu Apr 19 21:40:54 2012
+# Email: diegovalle at gmail.com
+# Purpose: Lengthy marriages are ending at a higher rate than newer ones
+# Copyright (c) Diego Valle-Jones. All rights reserved
 
 
+#Group marriages by length
 marriage.duration.df$group <- cut(marriage.duration.df$length,
                                   c(0,2,5,10,15, Inf),
                                   right = FALSE,
@@ -9,11 +17,12 @@ marriage.duration.df$group <- cut(marriage.duration.df$length,
 df.length <- ddply(marriage.duration.df, .(divorce.year, group), summarise,
       divorces = sum(divorces))
 
+#Print an html with the number of divorces by length of marriage for the last few years
 div.table <- xtabs(divorces ~ divorce.year + group ,
                  data = subset(df.length, divorce.year %in% 2007:2009))
 print(xtable(div.table, digits = 0 ), type = "html")
 
-                                         
+#The percentage change in divorces and plot  
 df.length <- ddply(df.length, .(group), transform,
                    divorces = Delt(divorces, type= 'arithmetic'))
 

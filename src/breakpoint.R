@@ -1,3 +1,10 @@
+########################################################
+# Author: Diego Valle-Jones
+# Website: www.diegovalle.net
+# Date Created: Thu Apr 19 21:29:16 2012
+# Email: diegovalle at gmail.com
+# Purpose: Breakpoint and Chart of Divorces in the Federal District
+# Copyright (c) Diego Valle-Jones. All rights reserved
 
 
 seasonggplot <- function(ts) {
@@ -18,6 +25,7 @@ seasonggplot <- function(ts) {
 }
 
 
+#Time series object of divorces
 div <- ts(log(div.df$divorces), freq = 12, start = 1993)
 #png("graphs/seasonplot.png")
 #seasonplot(div)
@@ -32,21 +40,34 @@ fit <- auto.arima(div)
 png("graphs/forecast.png")
 plot(forecast(fit))
 dev.off()
-div <- cbind(div, lag(div, k = -1),  lag(div, k = -2), filter(div, 2),
+#create an object with lags
+div <- cbind(div, lag(div, k = -1),  lag(div, k = -2),
              lag(div, k = -12))
 div <- window(div, start = c(1994,1), end = c(2009,12))
-colnames(div) <- c("y", "ylag1", "ylag2", "ma2", "ylag12")
+colnames(div) <- c("y", "ylag1", "ylag2", "ylag12")
 
+#The breakpoint from strucchange
 bp.divorce <- breakpoints(y ~ ylag1 + ylag12, data = div, 
                        breaks = 1, h = 12)
 summary(bp.divorce)
 bp.conf <- confint(bp.divorce)
 bp.conf
+#A quick plot of the breakpoint
 plot(div[,"y"])
 lines(bp.divorce)
 lines(bp.conf)
 lines(as.Date("2008-09-03"))
 
+
+#Check that the breakpoint model makes sense
+png("graphs/regressions-with-and-without-breakpoint.png")
+fm0 <- lm(y ~ ylag1 + ylag12, data = div)
+fm1 <- lm(y ~ breakfactor(bp.divorce)/(ylag1 + ylag12) - 1, data = div)
+plot(div[,"y"])
+lines(fitted(fm0), col = 3)
+lines(fitted(fm1), col = 4)
+title("regressions with and without breakpoint")
+dev.off()
 
 ##y <- div[,"y"]
 ##ylag1 <- div[,"ylag1"]
@@ -58,7 +79,7 @@ lines(as.Date("2008-09-03"))
 ## plotState(fit.mcmc, legend.control = c(1, 0.6))
 ## plotChangepoint(fit.mcmc)
 
-
+#Objects to add nice lines  to the ggplot
 div <- as.data.frame(div)
 plot(bcp(div$y))
 div$date <- seq(as.Date("1994-01-01"), as.Date("2009-12-01"), by = "month")
@@ -87,11 +108,4 @@ ggplot(div, aes(date, y)) +
        title = "Monthy divorces in the Federal District started rising after express divorce went into effect") 
 ggsave("graphs/breakpoint.png", dpi = 100, w = 9, h = 5)
 
-png("graphs/regressions-with-and-without-breakpoint.png")
-fm0 <- lm(y ~ ylag1 + ylag12, data = div)
-fm1 <- lm(y ~ breakfactor(bp.divorce)/(ylag1 + ylag12) - 1, data = div)
-plot(div[,"y"])
-lines(fitted(fm0), col = 3)
-lines(fitted(fm1), col = 4)
-title("regressions with and without breakpoint")
-dev.off()
+

@@ -1,5 +1,13 @@
+########################################################
+# Author: Diego Valle-Jones
+# Website: www.diegovalle.net
+# Date Created: Thu Apr 19 21:38:25 2012
+# Email: diegovalle at gmail.com
+# Purpose: People from outside the federal district and lengthy marriages are the ones getting divorced! 
+# Copyright (c) Diego Valle-Jones. All rights reserved
 
 
+#data frame with the difference in divorces from 2009 to 2008
 per.change <- ddply(div.df.state, .(state),
                     summarise,
                     ratio = divorces[length(divorces)] - divorces[length(divorces)-1])
@@ -19,7 +27,7 @@ ggplot(per.change,
 ggsave("graphs/ratio-df.png", dpi = 100, w = 8, h = 6)
 
 
-#3##########3333
+###############
 ##Bug Alert!
 ##############
 ##Repeat the data for the Federal district because otherwise direct.label throws an error
@@ -41,16 +49,16 @@ direct.label(p, "last.bumpup")
 ggsave("graphs/divorce-trends-df-vs-elsewhere.png", dpi = 100, w = 9, h = 6,
         type = "cairo")
 
-ggplot(div.df.state,
-       aes(divorce.year, divorces,
-           group = state, color = state,
-           label = state)) +
-  geom_line(show_guide= FALSE)  +
-  geom_text(data = subset(div.df.state, divorce.year == 2009),
-            aes(divorce.year, divorces), show_guide= FALSE,
-            hjust = 0) +
-  scale_y_log10() +
-  xlim(2005,2011) +
-  facet_wrap(~ FederalDistrict, scale = "free_y")
-#ggsave("graphs/ratio-df.png", dpi = 100, w = 9, h = 7)
+## ggplot(div.df.state,
+##        aes(divorce.year, divorces,
+##            group = state, color = state,
+##            label = state)) +
+##   geom_line(show_guide= FALSE)  +
+##   geom_text(data = subset(div.df.state, divorce.year == 2009),
+##             aes(divorce.year, divorces), show_guide= FALSE,
+##             hjust = 0) +
+##   scale_y_log10() +
+##   xlim(2005,2011) +
+##   facet_wrap(~ FederalDistrict, scale = "free_y")
+## #ggsave("graphs/ratio-df.png", dpi = 100, w = 9, h = 7)
 

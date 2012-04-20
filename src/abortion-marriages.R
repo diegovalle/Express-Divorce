@@ -1,15 +1,24 @@
+########################################################
+# Author: Diego Valle-Jones
+# Website: www.diegovalle.net
+# Date Created: Thu Apr 19 21:43:41 2012
+# Email: diegovalle at gmail.com
+# Purpose: Why did marriages fall in 2008? 
+# Copyright (c) Diego Valle-Jones. All rights reserved
+
+#find the break date corresponding to a breakpoint in marriages confidence interval
 breakToDate <- function(breakp) {
   marriage.num[bp.marriage.conf$confint[[breakp]], "date"]
 }
 
-
+#A quick plot of the data
 ggplot(marriages.df, aes(date, marriages)) +
   geom_line() +
   ##scale_x_date(limits = c(as.Date("2004-01-01"), as.Date("2009-12-01"))) +
   geom_vline(xintercept = as.numeric(as.Date("2007-04-01")+ months(9)) , linetype = 2)
 
 
-
+#Breakpoint of the marriages
 marriage.ts <- ts(log(marriages.df$marriages), freq = 12, start = 1993)
 #png("graphs/seasonplot.png"
 #fit <- auto.arima(marriage.num)
@@ -22,6 +31,7 @@ marriage.num <- cbind(marriage.ts, lag(marriage.ts, k = -1),
 marriage.num <- window(marriage.num, start = c(1994,1), end = c(2009,12))
 colnames(marriage.num) <- c("y", "ylag1", "ylag2", "ylag12")
 
+#ARIMA (1,0,0)(1,0,0)[12] with 2 breakpoints and a minimum length of 12 months
 bp.marriage <- breakpoints(y ~ ylag1 + ylag12, data = marriage.num, 
                        breaks = 2, h = 12)
 summary(bp.marriage)
