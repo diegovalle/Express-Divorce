@@ -26,7 +26,7 @@ direct.label(p, "top.bumpup")
 ggsave("graphs/cumulative-divorce-by-length.png", dpi = 100, w = 8, h = 6)
 
 marriage.duration$express.divorce <- marriage.duration$divorce.year >= 2008
-fit <- lme(fixed = percent.divorce ~ length + log(length) + marriage.year + express.divorce,
+fit <- lme(fixed = percent.divorce ~ bs(length,5) + marriage.year + express.divorce,
            random = ~ -1 | marriage.year, 
            data = subset(marriage.duration, length >= 2))
 summary(fit)

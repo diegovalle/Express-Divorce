@@ -37,13 +37,13 @@ div <- cbind(div, lag(div, k = -1),  lag(div, k = -2), filter(div, 2),
 div <- window(div, start = c(1994,1), end = c(2009,12))
 colnames(div) <- c("y", "ylag1", "ylag2", "ma2", "ylag12")
 
-bp.seat <- breakpoints(y ~ ylag1 + ylag12, data = div, 
+bp.divorce <- breakpoints(y ~ ylag1 + ylag12, data = div, 
                        breaks = 1, h = 12)
-summary(bp.seat)
-bp.conf <- confint(bp.seat)
+summary(bp.divorce)
+bp.conf <- confint(bp.divorce)
 bp.conf
 plot(div[,"y"])
-lines(bp.seat)
+lines(bp.divorce)
 lines(bp.conf)
 lines(as.Date("2008-09-03"))
 
@@ -69,11 +69,11 @@ div.legend = data.frame(date = as.Date("2008-10-15"),
   y = 7.1, label = "Express\nDivorce")
 
 ggplot(div, aes(date, y)) +
-  geom_rect(aes(xmin = start, xmax = end,
-                ymin = -Inf, ymax = Inf),
-            data = div.conf,
-            fill = "red", alpha = .3,
-            show_guide= TRUE) +
+  ## geom_rect(aes(xmin = start, xmax = end,
+  ##               ymin = -Inf, ymax = Inf),
+  ##           data = div.conf,
+  ##           fill = "red", alpha = .3,
+  ##          show_guide= TRUE) +
   geom_line() +
   geom_vline(xintercept = as.numeric(express.divorce.date),
              linetype = 2) +
@@ -84,12 +84,12 @@ ggplot(div, aes(date, y)) +
   ylab("log number of divorces") +
   xlab("date divorce was filed") +
   opts(plot.title = theme_text(size = 12),
-       title = "Monthy divorces in the Federal District started rising after express divorce went into effect\n (the implementation of express divorce is marked by a dotted line, breakpoint 95% confidence interval in red)") 
+       title = "Monthy divorces in the Federal District started rising after express divorce went into effect") 
 ggsave("graphs/breakpoint.png", dpi = 100, w = 9, h = 5)
 
 png("graphs/regressions-with-and-without-breakpoint.png")
 fm0 <- lm(y ~ ylag1 + ylag12, data = div)
-fm1 <- lm(y ~ breakfactor(bp.seat)/(ylag1 + ylag12) - 1, data = div)
+fm1 <- lm(y ~ breakfactor(bp.divorce)/(ylag1 + ylag12) - 1, data = div)
 plot(div[,"y"])
 lines(fitted(fm0), col = 3)
 lines(fitted(fm1), col = 4)

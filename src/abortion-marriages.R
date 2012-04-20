@@ -1,7 +1,11 @@
+breakToDate <- function(breakp) {
+  marriage.num[bp.marriage.conf$confint[[breakp]], "date"]
+}
+
 
 ggplot(marriages.df, aes(date, marriages)) +
   geom_line() +
-  scale_x_date(limits = c(as.Date("2004-01-01"), as.Date("2009-12-01"))) +
+  ##scale_x_date(limits = c(as.Date("2004-01-01"), as.Date("2009-12-01"))) +
   geom_vline(xintercept = as.numeric(as.Date("2007-04-01")+ months(9)) , linetype = 2)
 
 
@@ -31,9 +35,7 @@ marriage.num <- as.data.frame(marriage.num)
 plot(bcp(marriage.num$y))
 marriage.num[168,]
 marriage.num$date <- seq(as.Date("1994-01-15"), as.Date("2009-12-15"), by = "month")
-breakToDate <- function(breakp) {
-  marriage.num[bp.marriage.conf$confint[[breakp]], "date"]
-}
+
 
 marriage.num.conf <- data.frame(start = c(breakToDate(1),breakToDate(2) ),
                        end =  c(breakToDate(5),breakToDate(6)),
