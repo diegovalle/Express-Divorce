@@ -30,8 +30,9 @@ div <- ts(log(div.df$divorces), freq = 12, start = 1993)
 #png("graphs/seasonplot.png")
 #seasonplot(div)
 #dev.off()
-seasonggplot(div)
-ggsave("graphs/seasonggplot.png", dpi = 100, w = 9, h = 5)
+p <- seasonggplot(div)
+p <- addSource(p)
+ggsave("graphs/seasonggplot.png", plot = p, dpi = 100, w = 9, h = 5)
 acf(div)
 pacf(div)
 #div <- diff(div)
@@ -59,15 +60,7 @@ lines(bp.conf)
 lines(as.Date("2008-09-03"))
 
 
-#Check that the breakpoint model makes sense
-png("graphs/regressions-with-and-without-breakpoint.png")
-fm0 <- lm(y ~ ylag1 + ylag12, data = div)
-fm1 <- lm(y ~ breakfactor(bp.divorce)/(ylag1 + ylag12) - 1, data = div)
-plot(div[,"y"])
-lines(fitted(fm0), col = 3)
-lines(fitted(fm1), col = 4)
-title("regressions with and without breakpoint")
-dev.off()
+
 
 ##y <- div[,"y"]
 ##ylag1 <- div[,"ylag1"]
@@ -89,7 +82,7 @@ div.conf <- data.frame(start = div[bp.conf$confint[1], "date"],
 div.legend = data.frame(date = as.Date("2008-10-15"),
   y = 7.1, label = "Express\nDivorce")
 
-ggplot(div, aes(date, y)) +
+p <- ggplot(div, aes(date, y)) +
   ## geom_rect(aes(xmin = start, xmax = end,
   ##               ymin = -Inf, ymax = Inf),
   ##           data = div.conf,
@@ -105,7 +98,17 @@ ggplot(div, aes(date, y)) +
   ylab("log number of divorces") +
   xlab("date divorce was filed") +
   opts(plot.title = theme_text(size = 12),
-       title = "Monthy divorces in the Federal District started rising after express divorce went into effect") 
-ggsave("graphs/breakpoint.png", dpi = 100, w = 9, h = 5)
+       title = "Monthy divorces in the Federal District started rising after express divorce went into effect")
+p <- addSource(p)
+ggsave("graphs/breakpoint.png", plot = p, dpi = 100, w = 9, h = 5)
 
 
+#Check that the breakpoint model makes sense
+png("graphs/regressions-with-and-without-breakpoint.png")
+fm0 <- lm(y ~ ylag1 + ylag12, data = div)
+fm1 <- lm(y ~ breakfactor(bp.divorce)/(ylag1 + ylag12) - 1, data = div)
+plot(div[,"y"])
+lines(fitted(fm0), col = 3)
+lines(fitted(fm1), col = 4)
+title("regressions with and without breakpoint")
+dev.off()
