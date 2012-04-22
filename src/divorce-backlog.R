@@ -32,7 +32,7 @@ p <- ggplot(df.length, aes(divorce.filed, divorces,
   xlim(2001,2011) +
   opts(title = "Percentage change in number of divorces filed in the Federal District,\n by length of marriage") +
   xlab("year divorce was filed") +
-  ylab("percentage change in number of divorces") +
+  ylab("annual change in number of divorces") +
   scale_y_continuous(label = percent)
 p <- direct.label(p, "last.bumpup")
 p <- addSource(p)
@@ -43,8 +43,6 @@ ggsave("graphs/divorce-backlog.png", plot = p, dpi = 100, w = 8, h = 5)
 ##############################################333
 ##Divorces that took place in the Federal District of Marriages that took place in the Federal District
 
-head(marriage.duration.df.df)
-
 
 marriage.duration.df.df$group <- cut(marriage.duration.df.df$marriage.length,
                                   c(0,2,5,10,15, Inf),
@@ -54,6 +52,9 @@ marriage.duration.df.df$group <- cut(marriage.duration.df.df$marriage.length,
 
 df.df.length <- ddply(marriage.duration.df.df, .(divorce.filed, group), summarise,
       divorces = sum(divorces))
+div.table <- xtabs(divorces ~ divorce.filed + group ,
+                 data = subset(df.df.length, divorce.filed %in% 2007:2009))
+print(xtable(div.table, digits = 0 ), type = "html")
 df.df.length <- ddply(df.df.length, .(group), transform,
       divorces = Delt(divorces, type= 'arithmetic'))
 p <- ggplot(df.df.length,
@@ -61,14 +62,42 @@ p <- ggplot(df.df.length,
   geom_line()+
   opts(title = "Percentage change in number of divorces filed in the Federal District,\n of marriages that took place in the Federal District, by length of marriage") +
   xlab("year divorce was filed") +
-  ylab("percentage change in number of divorces") +
+  ylab("annual change in number of divorces") +
   scale_y_continuous(label = percent) +
   xlim(2001, 2010.5) 
 p <- direct.label(p, "last.bumpup")
 p <- addSource(p)
-ggsave("graphs/divorce-backlog-marriages-df.png", plot = p, dpi = 100, w = 8, h = 5)
+ggsave("graphs/divorce-backlog-in-df.png", plot = p, dpi = 100, w = 8, h = 5)
 
 
 
 
+#####################################################################
+##All states excludig the Federal District
 
+marriage.duration.dfe.state2 <- subset(marriage.duration.dfe.state,
+                                      group == "Elsewhere")
+marriage.duration.dfe.state2$group <- cut(marriage.duration.dfe.state2$marriage.length,
+                                         c(0,2,5,10,15, Inf),
+                                         right = FALSE,
+                                         labels = c("0-1 years","2-4 years",
+                                           "5-9 years","10-14 years","15 or more years"))
+
+df.dfe.length <- ddply(marriage.duration.dfe.state2, .(divorce.filed, group), summarise,
+      divorces = sum(divorces))
+div.table <- xtabs(divorces ~ divorce.filed + group ,
+                 data = subset(df.dfe.length, divorce.filed %in% 2007:2009))
+print(xtable(div.table, digits = 0 ), type = "html")
+df.dfe.length <- ddply(df.dfe.length, .(group), transform,
+      divorces = Delt(divorces, type= 'arithmetic'))
+p <- ggplot(df.dfe.length,
+       aes(divorce.filed, divorces, group = group, color = group)) +
+  geom_line()+
+  opts(title = "Percentage change in number of divorces filed in the Federal District,\n of marriages that took place outside the Federal District, by length of marriage") +
+  xlab("year divorce was filed") +
+  ylab("annual change in number of divorces") +
+  scale_y_continuous(label = percent) +
+  xlim(2001, 2010.5) 
+p <- direct.label(p, "last.bumpup")
+p <- addSource(p)
+ggsave("graphs/divorce-backlog-outside-df.png", plot = p, dpi = 100, w = 8, h = 5)

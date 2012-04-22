@@ -177,3 +177,34 @@ marriage.duration.df.df <- marriage.duration.df.df[order(marriage.duration.df.df
 ##                                marriage.year < 2010)
 marriage.duration.df.df <- subset(marriage.duration.df.df, divorce.filed < 2010 &
                                marriage.year < 2010 & divorce.filed > 1992)
+
+
+#############################################################################333
+##Marriage duration in the federal district by state
+marriage.duration.df.state <- read.csv("data/social-duration-df-by-state.csv.bz2",
+                                    skip = 4, fileEncoding = "windows-1252")
+
+marriage.duration.df.state$X.2 <- NULL
+marriage.duration.df.state <- subset(marriage.duration.df.state, X != "Total" &
+                                  X.1 != "Total" & X.3 != "Total" &
+  X != "No especificado" & X.1 != "No especificado" & X.3 != "No especificado")
+marriage.duration.df.state[,1:2]<- apply(marriage.duration.df.state[,1:2], 2, function(x) as.numeric(as.character(x)))
+marriage.duration.df.state[,4:ncol(marriage.duration.df.state)]<- apply(marriage.duration.df.state[,4:ncol(marriage.duration.df.state)], 2, function(x) as.numeric(str_replace(x, ",", "")))
+
+marriage.duration.df.state[is.na(marriage.duration.df.state)] <- 0
+marriage.duration.df.state$divorces <- rowSums(marriage.duration.df.state[,4:ncol(marriage.duration.df.state)])
+
+
+marriage.duration.df.state <- subset(marriage.duration.df.state, X >= 1993 & X < 2010)
+
+#marriage.duration.df.state$divorces[marriage.duration.df.state$X == 2008] <- marriage.duration.df.state$divorces[marriage.duration.df.state$X == 2008] * 1.01
+marriage.duration.df.state <- marriage.duration.df.state[,c(1:3,ncol(marriage.duration.df.state))]
+
+names(marriage.duration.df.state) <- c("divorce.filed", "marriage.year", "marriage.state", "divorces")
+marriage.duration.df.state$marriage.length <- with(marriage.duration.df.state, divorce.filed - marriage.year)
+
+marriage.duration.df.state$group <- ifelse(marriage.duration.df.state$marriage.state == "Distrito Federal", "DF", "Elsewhere")
+marriage.duration.dfe.state <- ddply(marriage.duration.df.state, .(divorce.filed, marriage.year, group),
+      summarise,
+      divorces = sum(divorces),
+      marriage.length = marriage.length[1])
