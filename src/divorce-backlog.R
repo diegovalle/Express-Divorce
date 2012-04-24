@@ -20,6 +20,7 @@ df.length <- ddply(marriage.duration.df, .(divorce.filed, group), summarise,
 #Print an html with the number of divorces by length of marriage for the last few years
 div.table <- xtabs(divorces ~ divorce.filed + group ,
                  data = subset(df.length, divorce.filed %in% 2007:2009))
+message("all divorces filed in the Federal District")
 print(xtable(div.table, digits = 0 ), type = "html")
 
 #The percentage change in divorces and plot  
@@ -54,6 +55,7 @@ df.df.length <- ddply(marriage.duration.df.df, .(divorce.filed, group), summaris
       divorces = sum(divorces))
 div.table <- xtabs(divorces ~ divorce.filed + group ,
                  data = subset(df.df.length, divorce.filed %in% 2007:2009))
+message("Divorces that took place in the Federal District of Marriages that took place in the Federal District")
 print(xtable(div.table, digits = 0 ), type = "html")
 df.df.length <- ddply(df.df.length, .(group), transform,
       divorces = Delt(divorces, type= 'arithmetic'))
@@ -87,6 +89,7 @@ df.dfe.length <- ddply(marriage.duration.dfe.state2, .(divorce.filed, group), su
       divorces = sum(divorces))
 div.table <- xtabs(divorces ~ divorce.filed + group ,
                  data = subset(df.dfe.length, divorce.filed %in% 2007:2009))
+message("All states excludig the Federal District")
 print(xtable(div.table, digits = 0 ), type = "html")
 df.dfe.length <- ddply(df.dfe.length, .(group), transform,
       divorces = Delt(divorces, type= 'arithmetic'))

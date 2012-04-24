@@ -22,8 +22,8 @@ ggsave("graphs/divorces-by-length-state.png", plot = p, dpi = 100, w = 9, h = 6)
 
 marriage.duration.state2 <- subset(marriage.duration.state2,
                                    state %in% c("Hidalgo",
-                                                "Baja California Sur",
-                                                "Colima",
+                                                "Distrito Federal",
+                                                "Tlaxcala",
                                                 "Morelos"))
 marriage.duration.state2 <- ddply(marriage.duration.state2, .(marriage.state),
                                   transform, order = max(percent.divorce))
