@@ -16,7 +16,7 @@ p <- ggplot(marriage.duration, aes(marriage.length, percent.divorce, group = mar
   scale_colour_gradient(low="gray80", high="black") +
   xlim(0,17)
 p <- direct.label(p, "last.bumpup")
-p <- addSource(p, "Data Source: Vital Statistics INEGI (2009 and 2008 data has been adjusted for undercounting)")
+p <- addSource(p, "Data Source: Vital Statistics INEGI (data registered in 2009 and 2008 have been adjusted for undercounting)")
 ggsave("graphs/divorces-by-length.png", plot = p, dpi = 100, w = 8, h = 6)
 
 p <- ggplot(marriage.duration, aes(marriage.length, cumulative.divorce, group = marriage.year,
@@ -31,7 +31,7 @@ p <- ggplot(marriage.duration, aes(marriage.length, cumulative.divorce, group = 
            title = "Cumulative proportion of marriages ending in divorce in all of Mexico,\n by year of marriage" )+
   xlim(0,17)
 p <- direct.label(p, "top.bumpup")
-p <- addSource(p, "Data Source: Vital Statistics INEGI (2009 and 2008 data has been adjusted for undercounting)")
+p <- addSource(p, "Data Source: Vital Statistics INEGI (data registered in 2009 and 2008 have been adjusted for undercounting)")
 ggsave("graphs/cumulative-divorce-by-length.png", plot = p, dpi = 100, w = 8, h = 6)
 
 #Fit a multilevel model to the percentage of marriages that end in divorce
@@ -74,14 +74,14 @@ p <- ggplot(marriage.duration2, aes(marriage.length, percent.divorce, group = ma
        title = "Projection of proportion of marriages ending in divorce in all of Mexico,\n by year of marriage" )+
   xlim(0,17)
 p <- direct.label(p, "last.bumpup")
-p <- addSource(p, "Data Source: Vital Statistics INEGI (2009 and 2008 data has been adjusted for undercounting)")
+p <- addSource(p, "Data Source: Vital Statistics INEGI (data registered in 2009 and 2008 have been adjusted for undercounting)")
 ggsave("graphs/projection-divorces-by-length.png", plot = p, dpi = 100, w = 8, h = 6)
 
-p <- ggplot(subset(marriage.duration2, marriage.year <= 2007),
+p <- ggplot(subset(marriage.duration2, marriage.year %in% c(1993,2000,2007)), #<= 2007),
             aes(marriage.length, cumulative.divorce, group = marriage.year,
                          color = marriage.year)) +
   geom_line(linetype = 2) +
-  geom_line(data = subset(marriage.duration2, is.na(fit)),
+  geom_line(data = subset(marriage.duration2, is.na(fit) & marriage.year %in% c(1993,2000,2007)),
             aes(marriage.length, cumulative.divorce, group = marriage.year,
                          color = marriage.year), linetype = 1,
             size = .7) +
@@ -93,6 +93,6 @@ p <- ggplot(subset(marriage.duration2, marriage.year <= 2007),
        title = "Projection of the cumulative proportion of marriages ending in divorce in all of Mexico,\n by year of marriage" )+
   xlim(0,17)
 p <- direct.label(p, "last.bumpup")
-p <- addSource(p, "Data Source: Vital Statistics INEGI (2009 and 2008 data have been adjusted for undercounting)")
-ggsave("graphs/projection-cumulative-divorces-by-length.png", plot = p,
+p <- addSource(p, "Data Source: Vital Statistics INEGI (data registered in 2009 and 2008 have been adjusted for undercounting)")
+ggsave("graphs/projection-cumulative-divorces-by-length2.png", plot = p,
        dpi = 100, w = 8, h = 6)

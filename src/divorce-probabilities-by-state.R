@@ -23,7 +23,7 @@ ggsave("graphs/divorces-by-length-state.png", plot = p, dpi = 100, w = 9, h = 6)
 marriage.duration.state2 <- subset(marriage.duration.state2,
                                    state %in% c("Hidalgo",
                                                 "Distrito Federal",
-                                                "Tlaxcala",
+                                                "Querétaro",
                                                 "Morelos"))
 marriage.duration.state2 <- ddply(marriage.duration.state2, .(marriage.state),
                                   transform, order = max(percent.divorce))
@@ -36,13 +36,13 @@ p <- ggplot(marriage.duration.state2, aes(marriage.length,
   geom_line() +
   scale_y_continuous(label = percent)+
       xlab("years since wedding") +
-  opts(title = "Proportion of marriages ending in divorce each year in all of Mexico,\n by year of marriage and state where marriage took place") +
+  opts(title = "Proportion of marriages ending in divorce each year near the Federal District,\n by year of marriage and state where marriage took place (1993-2007)") +
       ylab("proportion of marriages ending in divorce") +
   scale_colour_gradient("year of\nmarriage", low="gray80", high="black") +
   xlim(0,17) +
   facet_wrap(~state)
 p <- addSource(p)
-ggsave("graphs/divorces-by-length-state-mor-dur-bcs-col.png", plot = p,
+ggsave("graphs/divorces-by-length-state-df-qto-hgo-mor.png", plot = p,
        dpi = 100, w = 8, h = 6)
 
 

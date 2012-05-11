@@ -43,7 +43,7 @@ p <- ggplot(div.df.state2,
   scale_y_log10() +
   xlim(2005,2011.4) +
   facet_wrap(~ FederalDistrict, scale = "free_y") +
-  opts(title = "Divorce trends in the Federal District, by state where marriage took place") +
+  opts(title = "Divorces filed in the Federal District, by state where marriage took place") +
   xlab("year divorce was filed") +
   ylab("number of divorces")
 p <- direct.label(p, "last.bumpup")

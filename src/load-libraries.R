@@ -20,6 +20,7 @@ library(xtable)
 library(rgdal)
 library(maptools)
 library(gridExtra)
+library(bfast)
 gpclibPermit()
 theme_set(theme_bw())
 

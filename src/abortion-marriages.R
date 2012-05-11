@@ -41,6 +41,9 @@ plot(marriage.num[,"y"])
 lines(bp.marriage)
 lines(bp.marriage.conf)
 
+mar.bfast <- bfast(marriage.ts, h= .07, season = "dummy", max.iter = 1)
+plot(mar.bfast)
+
 marriage.num <- as.data.frame(marriage.num)
 plot(bcp(marriage.num$y))
 marriage.num[168,]
@@ -54,7 +57,7 @@ marriage.num.legend = data.frame(date = as.Date("2007-04-15"),
   y = 8.6, label = "legal abortion")
 
 abortion.date <- as.Date("2007-04-27") #+ months(9)
-p <- ggplot(marriage.num, aes(date, y)) +
+p <- ggplot(marriage.num, aes(date, exp(y))) +
   geom_rect(aes(xmin = start, xmax = end,
                 ymin = -Inf, ymax = Inf),
             data = marriage.num.conf,
@@ -63,9 +66,9 @@ p <- ggplot(marriage.num, aes(date, y)) +
   geom_line() +
   geom_vline(xintercept = c(as.numeric(breakToDate(4)), as.numeric(breakToDate(3))),
              linetype = 2) +
-  ylim(c(7.5, 8.75)) +
+  ylim(c(0, 6000)) +
   scale_x_date(limits = c(as.Date("2004-09-01"), as.Date("2009-12-01"))) +
-  ylab("log number of marriages") +
+  ylab("number of marriages") +
   xlab("marriage date") +
   opts(plot.title = theme_text(size = 12),
        title = "Monthy marriages in the Federal District (95% CI of breakpoints shown in red)")
