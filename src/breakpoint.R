@@ -19,7 +19,7 @@ seasonggplot <- function(ts) {
         opts(title = "Seasonal variation in divorces in the Federal District") +
     scale_color_manual("year", values = c(colorRampPalette(c("gray80",
                                  "black"))(2009-1993),"#E34A33"),
-                       breaks = c(1993,2009), labels = c("1993-2008", "2009")) +
+                       breaks = c(19----93,2009), labels = c("1993-2008", "2009")) +
     scale_x_discrete("month divorce was filed", breaks = month.abb,
                       labels = month.abb)
 }
