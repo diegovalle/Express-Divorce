@@ -1,4 +1,4 @@
-"marriage.year","divorce.year","divorces","length","marriages","percent.divorce","cumulative.divorce"
+"marriage.year","divorce.filed","divorces","marriage.length","marriages","percent.divorce","cumulative.divorce"
 1993,1993,532,0,659567,0.000806589777839098,0.000806589777839098
 1993,1994,2106,1,659567,0.00319300389497959,0.00399959367281868
 1993,1995,2873,2,659567,0.00435588802957092,0.0083554817023896
